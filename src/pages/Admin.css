@@ -1,0 +1,58 @@
+.admin-page {
+  padding: 3rem 1rem;
+}
+
+.admin-page__title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Georgia", serif;
+  font-size: 1.8rem;
+}
+
+.admin-page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 0;
+  color: #6b6459;
+}
+
+.admin-table__img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.admin-table__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  border: 1px solid #e8e4de;
+  background: #fff;
+  border-radius: 4px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: #f2efe9;
+}
+
+.icon-btn--danger {
+  color: #b3413a;
+  border-color: #f0d8d5;
+}
+
+.icon-btn--danger:hover {
+  background: #fbeceb;
+}

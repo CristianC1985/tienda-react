@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Build
+dist/
+
+# Variables de entorno (credenciales Firebase - NUNCA subir)
+.env
+.env.local
+
+# Editor / SO
+.vscode/
+.DS_Store
+
+# Logs
+npm-debug.log*

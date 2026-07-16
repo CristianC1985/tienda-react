@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nombre": "Silla Nórdica Oslo",
+    "precio": 24500,
+    "categoria": "sillas",
+    "descripcion": "Silla de madera maciza con tapizado en tela bouclé. Diseño escandinavo que combina comodidad y estética minimalista. Perfecta para espacios modernos.",
+    "imagen": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80",
+    "stock": 12
+  },
+  {
+    "id": 2,
+    "nombre": "Mesa de Centro Kobe",
+    "precio": 38900,
+    "categoria": "mesas",
+    "descripcion": "Mesa de centro con tablero de mármol blanco Carrara y patas de metal negro mate. Elegancia y durabilidad en una sola pieza.",
+    "imagen": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+    "stock": 7
+  },
+  {
+    "id": 3,
+    "nombre": "Lámpara Arco Cobre",
+    "precio": 15200,
+    "categoria": "iluminacion",
+    "descripcion": "Lámpara de arco con estructura de cobre cepillado y pantalla de lino natural. Ilumina rincones con luz cálida y ambiente sofisticado.",
+    "imagen": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&q=80",
+    "stock": 20
+  },
+  {
+    "id": 4,
+    "nombre": "Sofá Módular Petra",
+    "precio": 125000,
+    "categoria": "sofas",
+    "descripcion": "Sofá de 3 cuerpos con tapizado en terciopelo musgo. Sistema modular que se adapta a cualquier espacio. Espuma de alta densidad.",
+    "imagen": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=600&q=80",
+    "stock": 4
+  },
+  {
+    "id": 5,
+    "nombre": "Estante Flotante Roh",
+    "precio": 8700,
+    "categoria": "almacenamiento",
+    "descripcion": "Estante de madera de roble natural con soportes invisibles. Sistema de fijación resistente hasta 25kg. Disponible en 80cm y 120cm.",
+    "imagen": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=600&q=80",
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "nombre": "Escritorio Loft",
+    "precio": 52300,
+    "categoria": "mesas",
+    "descripcion": "Escritorio de hierro y madera reciclada de pino. Estilo industrial con cajón lateral. Superficie de trabajo amplia de 140x70cm.",
+    "imagen": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&q=80",
+    "stock": 8
+  },
+  {
+    "id": 7,
+    "nombre": "Alfombra Bereber Tiza",
+    "precio": 29800,
+    "categoria": "textiles",
+    "descripcion": "Alfombra de lana tejida a mano con motivos geométricos. Trama densa de 2cm de espesor. Medidas 160x230cm.",
+    "imagen": "https://images.unsplash.com/photo-1600166898405-da9535204843?w=600&q=80",
+    "stock": 15
+  },
+  {
+    "id": 8,
+    "nombre": "Espejo Arco Dorado",
+    "precio": 18600,
+    "categoria": "decoracion",
+    "descripcion": "Espejo de pared con marco de metal dorado envejecido. Forma de arco Tudor. Dimensiones: 60x140cm. Ideal para entradas y dormitorios.",
+    "imagen": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
+    "stock": 11
+  }
+]
