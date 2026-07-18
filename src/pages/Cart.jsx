@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { FiTrash2, FiShoppingBag, FiArrowLeft } from "react-icons/fi";
+import { FiTrash2, FiShoppingBag, FiArrowLeft, FiTag, FiX } from "react-icons/fi";
+import { Spinner } from "react-bootstrap";
 import { useCart } from "../context/CartContext";
 import "./Cart.css";
 
@@ -12,7 +14,59 @@ const formatPrice = (precio) =>
   }).format(precio);
 
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart, totalItems, totalPrice } = useCart();
+  const {
+    cartItems,
+    removeFromCart,
+    clearCart,
+    totalItems,
+    subtotal,
+    totalPrice,
+    cupon,
+    cuponError,
+    aplicandoCupon,
+    aplicarCupon,
+    quitarCupon,
+    descuento,
+  } = useCart();
+
+  const [codigoInput, setCodigoInput] = useState("");
+  const [compraFinalizada, setCompraFinalizada] = useState(null);
+
+  const handleAplicarCupon = async (e) => {
+    e.preventDefault();
+    if (!codigoInput.trim()) return;
+    const ok = await aplicarCupon(codigoInput);
+    if (ok) setCodigoInput("");
+  };
+
+  const handleFinalizarCompra = () => {
+    setCompraFinalizada({
+      items: cartItems,
+      total: totalPrice,
+      cantidad: totalItems,
+    });
+    clearCart();
+  };
+
+  if (compraFinalizada) {
+    return (
+      <div className="cart-empty">
+        <Helmet>
+          <title>Compra confirmada — Forma</title>
+        </Helmet>
+        <div className="cart-empty__icon">✓</div>
+        <h2 className="cart-empty__title">¡Gracias por tu compra!</h2>
+        <p className="cart-empty__sub">
+          Confirmamos {compraFinalizada.cantidad}{" "}
+          {compraFinalizada.cantidad === 1 ? "producto" : "productos"} por un total de{" "}
+          {formatPrice(compraFinalizada.total)}.
+        </p>
+        <Link to="/productos" className="cart-empty__cta">
+          Seguir comprando
+        </Link>
+      </div>
+    );
+  }
 
   if (cartItems.length === 0) {
     return (
@@ -33,7 +87,7 @@ const Cart = () => {
   return (
     <div className="cart">
       <Helmet>
-        <title>Carrito ({totalItems}) — Forma</title>
+        <title>{`Carrito (${totalItems}) — Forma`}</title>
       </Helmet>
 
       <div className="cart__header">
@@ -84,11 +138,61 @@ const Cart = () => {
             ))}
           </div>
           <div className="summary__divider" />
+
+          <div className="summary__coupon">
+            {cupon ? (
+              <div className="summary__coupon-applied">
+                <span>
+                  <FiTag /> <strong>{cupon.codigo}</strong> (-{cupon.descuentoPorcentaje}%)
+                </span>
+                <button
+                  onClick={quitarCupon}
+                  className="summary__coupon-remove"
+                  aria-label="Quitar cupón"
+                  title="Quitar cupón"
+                >
+                  <FiX />
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleAplicarCupon} className="summary__coupon-form">
+                <input
+                  type="text"
+                  value={codigoInput}
+                  onChange={(e) => setCodigoInput(e.target.value)}
+                  placeholder="Código de descuento"
+                  disabled={aplicandoCupon}
+                  className="summary__coupon-input"
+                />
+                <button
+                  type="submit"
+                  className="summary__coupon-btn"
+                  disabled={aplicandoCupon || !codigoInput.trim()}
+                >
+                  {aplicandoCupon ? <Spinner size="sm" animation="border" /> : "Aplicar"}
+                </button>
+              </form>
+            )}
+            {cuponError && <p className="summary__coupon-error">{cuponError}</p>}
+          </div>
+
+          <div className="summary__divider" />
+
+          <div className="summary__row">
+            <span>Subtotal</span>
+            <span>{formatPrice(subtotal)}</span>
+          </div>
+          {cupon && (
+            <div className="summary__row summary__row--discount">
+              <span>Descuento ({cupon.descuentoPorcentaje}%)</span>
+              <span>-{formatPrice(descuento)}</span>
+            </div>
+          )}
           <div className="summary__total">
             <span>Total</span>
             <span>{formatPrice(totalPrice)}</span>
           </div>
-          <button className="summary__checkout">
+          <button className="summary__checkout" onClick={handleFinalizarCompra}>
             <FiShoppingBag /> Finalizar compra
           </button>
           <button onClick={clearCart} className="summary__clear">

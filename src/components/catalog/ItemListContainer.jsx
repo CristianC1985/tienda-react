@@ -60,7 +60,7 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <Container as="section" className="catalog">
       <Helmet>
-        <title>{greeting || "Catálogo"} — Forma</title>
+        <title>{`${greeting || "Catálogo"} — Forma`}</title>
         <meta
           name="description"
           content="Explorá el catálogo completo de mobiliario y decoración de autor de Forma."

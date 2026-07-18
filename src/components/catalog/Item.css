@@ -82,8 +82,17 @@
   color: #c0622f;
 }
 
+.item-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
 .item-card__btn {
-  display: block;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 0.7rem;
   background: var(--color-dark);
@@ -93,9 +102,38 @@
   text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s;
-  margin-top: auto;
 }
 
 .item-card__btn:hover {
   background: var(--color-accent-dark, #8a6a30);
+}
+
+.item-card__add {
+  flex-shrink: 0;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.1rem;
+}
+
+.item-card__add:hover:not(:disabled) {
+  background: var(--color-dark);
+  color: var(--color-bg);
+}
+
+.item-card__add:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.item-card__add--added {
+  background: #5a8a5a;
+  border-color: #5a8a5a;
+  color: #fff;
 }

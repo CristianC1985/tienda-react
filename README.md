@@ -1,8 +1,8 @@
 # Forma — Diseño de Interiores
 
-E-commerce de mobiliario y decoración de autor, desarrollado con **React + Vite**. Proyecto final del curso de React (CoderHouse).
+E-commerce de mobiliario y decoración de autor, desarrollado con **React + Vite**. Proyecto final del curso de React.
 
-🔗 Demo: https://cristian-coronel.netlify.app/
+🔗 ProyectoFinal: https://tienda-react-cristiancoronel.vercel.app/
 
 ## ✨ Funcionalidades
 
@@ -129,4 +129,4 @@ Probado en las últimas versiones de Chrome, Firefox y Edge. Diseño responsivo 
 
 ## 👤 Autor
 
-Cristian Coronel — Proyecto final de React, CoderHouse.
+Cristian Coronel — Proyecto final de React.

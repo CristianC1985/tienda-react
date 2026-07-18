@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FiShoppingCart, FiCheck } from "react-icons/fi";
+import { useCart } from "../../context/CartContext";
 import "./Item.css";
 
 const formatPrice = (precio) =>
@@ -10,6 +13,16 @@ const formatPrice = (precio) =>
 
 const Item = ({ producto }) => {
   const { id, nombre, precio, categoria, imagen, stock } = producto;
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(producto, 1);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1500);
+  };
 
   return (
     <article className="item-card">
@@ -25,9 +38,21 @@ const Item = ({ producto }) => {
             {stock <= 5 ? `¡Solo ${stock}!` : "Disponible"}
           </span>
         </div>
-        <Link to={`/producto/${id}`} className="item-card__btn">
-          Ver detalle
-        </Link>
+
+        <div className="item-card__actions">
+          <Link to={`/producto/${id}`} className="item-card__btn">
+            Ver detalle
+          </Link>
+          <button
+            onClick={handleAdd}
+            className={`item-card__add ${added ? "item-card__add--added" : ""}`}
+            disabled={stock === 0}
+            title="Agregar al carrito"
+            aria-label={`Agregar ${nombre} al carrito`}
+          >
+            {added ? <FiCheck /> : <FiShoppingCart />}
+          </button>
+        </div>
       </div>
     </article>
   );

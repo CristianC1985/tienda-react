@@ -71,7 +71,7 @@ const ProductDetail = () => {
   return (
     <div className="detail">
       <Helmet>
-        <title>{producto.nombre} — Forma</title>
+        <title>{`${producto.nombre} — Forma`}</title>
         <meta name="description" content={producto.descripcion} />
       </Helmet>
 
